@@ -58,10 +58,11 @@ while flag:
 			print()
 			print(' ### Numbers must be 4 digits long ### ')
 			print()
+			
 		if len(repeated) == 4:
 			break
 
-#defining rewards or winner
+#Points or winner
 	if repeated == ia:
 		print()
 		print(f" ######### You won, number guessed '{ia} ######### '")
@@ -89,6 +90,7 @@ while flag:
 		print(f" ### Game over, you've exceded the 15 attemps ### ")
 		flag = False
 
+#Ask to play again
 	while True:
 		user_option = input("Do you want to keep playing?(y/n) -> ").lower()
 			
