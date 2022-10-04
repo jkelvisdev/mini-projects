@@ -3,61 +3,61 @@ import os
 
 #hangman draw
 hangman = ['''
-  +---+
-  |   |
+     +---+
+     |   |
 	 |
 	 |
 	 |
 	 |
-=========''', 
+   ======''', 
 '''
-  +---+
-  |   |
-  O   |
+     +---+
+     |   |
+     O   |
 	 |
 	 |
 	 |
-=========''', 
+   ======''', 
 '''
-  +---+
-  |   |
-  O   |
-  |   |
+     +---+
+     |   |
+     O   |
+     |   |
 	 |
 	 |
-=========''', 
+   ======''', 
 '''
-  +---+
-  |   |
-  O   |
- /|   |
+     +---+
+     |   |
+     O   |
+    /|   |
 	 |
 	 |
-=========''', 
+   ======''', 
 '''
-  +---+
-  |   |
-  O   |
- /|\  |
+     +---+
+     |   |
+     O   |
+    /|\  |
 	 |
 	 |
-=========''', 
+   ======''', 
 '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
+     +---+
+     |   |
+     O   |
+    /|\  |
+    /    |
 	 |
-=========''', 
+   ======''', 
 '''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
+     +---+
+     |   |
+     O   |
+    /|\  |
+    / \  |
 	 |
-=========''']
+   ======''']
 
 #word list
 
@@ -74,9 +74,10 @@ dictionary = "abcdefghijklmnopqrstuvwxyz"
 
 while True:
 
-	#os.system('cls')
+	os.system('cls')
 
 #showing hangman draw + fail attemps
+
 	draw = hangman[0 + fail]
 
 #welcome screen
@@ -86,24 +87,35 @@ while True:
 	print(draw)
 	print()
 	print()
-	print(f" ======= > {} < ======= ")
+
+#validating winner
+	if '_' not in hidden_word:
+		hidden_word = ''.join(hidden_word)
+		if hidden_word == word:
+			print('      ####### YOU WON #######        ')
+			break
+
+
+	for y in hidden_word:
+		print(f"{y.upper():2}", end = ' ')
+	print()
 	print()
 
 #win or lose validator
 	if fail <= 5:
 		user_letter = input("Type a word -> ").lower()
-		print(word)
-	elif hidden_word == word:
-		print('      ####### YOU WON #######        ')
 	else: 
 		print('      ####### GAME OVER #######        ')
+		print()
+		print('The word was:', word)
+		print()
 		break
 #input validator
 
 	if len(user_letter) != 1 or user_letter not in dictionary:
-	    print("You must type a valid option")
-	    continue
-	    print()
+		print("You must type a valid option")
+		print()
+		break
 
 #underscore replacemente if letter is in the hidden word
 #if user don't guess the number the hangman index will increase(else part)
