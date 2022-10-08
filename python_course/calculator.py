@@ -23,10 +23,15 @@ def menu():
 	print("2. For SUBSTRACTION press 2 -> ")
 	print("3. For MULTIPLICATION press 3 -> ")
 	print("4. For DIVISION press 4 -> ")
+	print("5. To CLOSE press 5 -> ")
 	print()
 
-def user_input():
-	input("Type an option -> ")
+def option_validator(option):
+	#validating user option
+	option_list = ['1', '2','3','4','5']
+	if user_option	in option_list:
+		return option
+	return None
 
 def multiply(number1,number2):
 #function that return multiplication result between 2 numbers 
@@ -44,10 +49,12 @@ def substract(number1, number2):
 	return number1 - number2
 
 def validator(number1, number2):
-	if n1 == int and n2 == int:
-		return True
+	if number1.isnumeric() == True and number2.isnumeric() == True:
+		number1 = int(number1)
+		number2 = int(number2)
+		return number1, number2
 	else:
-		return None
+		None
 
 flag = True
 
@@ -56,21 +63,22 @@ while flag:
 	welcome()
 	menu()
 
-	#saving the user input
-	user_option = user_input()
-
-	#input validator.
+	#input and option validator.
 	while True:
+		user_option = input("Type an option -> ")
+		if option_validator(user_option) != None:
 
-		n1 = int(input("Type a number -> "))
-		n2 = int(input("Type a second number -> "))
-		print(validator(n1,n2))
+			n1 = input("Type a number -> ")
+			n2 = input("Type a second number -> ")
 
-		if validator is True:
-			break
+			if validator(n1, n2) != None:
+				n1,n2 = validator(n1,n2)
+				break
+			else:
+				print("You must type a valid number")
 		else:
-			print("You must type a valid option.")
-			print()
+			print("You must select a valid option")
+
 
 	#doing the operations.
 	if user_option == '1':
@@ -81,6 +89,9 @@ while flag:
 		print(f"The result is: {multiply(n1, n2)} ")
 	elif user_option == '4':
 		print(f"The result is: {div(n1, n2)} ")
+	elif user_option == '5':
+		print(" -----> The calculator was closed <----- ")
+		break
 	else:
 		print("You must chose a valid option to operate")
 
@@ -90,8 +101,8 @@ while flag:
 
 		if option.lower() == 'n':
 			print(" ---- Calculator was closed ---- ")
-			break
 			flag = False
+			break
 		elif option.lower() == 'y':
 			break
 		else:
