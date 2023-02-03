@@ -1,3 +1,5 @@
+from decouple import config
+
 """
 Django settings for formulario project.
 
@@ -20,7 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7uf%^nq6ub9_j=b4c@0(9znrvym5tw4#tr1nk+p^)29ct4w1g1'
+
+SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
