@@ -1,26 +1,21 @@
 
 class Document(object):
 
-	def __init__(self, name, extension):
-		name = self.name
-		extension = self.extension
-		doc_name = name + extension
-		clean_doc = []
+	def __init__(self, name):
+		self.name = name
+		self.extension = '.csv'
+		self.doc_name = self.name + self.extension
+		self.clean_doc = None
 
 	def __str__(self):
-		return self.name
+		return self.doc_name
 
-	def document_reader(self): 
+	def reader(self): 
 
-		with open('..file/' + doc_name, 'r', encoding = 'utf-8') as file:
+		with open('file/'+self.doc_name, 'r', encoding = 'utf-8') as file:
+			file = file.read()
 			return file
 
 	def cleaner(self, file):
 
-		for line in file:
-			word_list = line.split(",")
-			clean_doc.append(word_list)
-
-		return clean_doc
-
-	
+		self.clean_doc = file.split(",")
