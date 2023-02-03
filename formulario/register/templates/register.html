@@ -1,32 +1,35 @@
 {% extends 'base.html' %}
 
-{% block content %}
-	<title>Register Form</title>
+{% load static %}
 
-	<h1>Register Form</h1>
+{% block content %}
+
+	<title>{% block title %} Register Form {% endblock %}</title>
 
 	<form class="form" action="/register/" method="GET">
 		
 		<label for= "name">First Name</label>
-		<input type="text" name="name" id= "name" maxlength="20" required>
+		<input type="text" name="name" id= "name" maxlength="20" required class="box">
 
 		<label for= "lastname">Last Name</label>
-		<input type="text" name="lastname" id= "lastname" maxlength="20" required>
+		<input type="text" name="lastname" id= "lastname" maxlength="20" required class="box">
 
 		<label for= "email">Email</label>
-		<input type="email" name="email" id= "email" required>
+		<input type="email" name="email" id= "email" required class="box">
 
 		<label for= "username">Username</label>
-		<input type="text" name="username" id= "username" maxlength="20" required>
+		<input type="text" name="username" id= "username" maxlength="20" required class="box">
 
 		<label for= "password">Password</label>
-		<input type="password" name="password" id= "password" maxlength="16" required>
+		<input type="password" name="password" id= "password" maxlength="16" required class="box">
 
 		<label for= "cpass">Confirm Password</label>
-		<input type="password" name="cpass" id= "cpass" required>
+		<input type="password" name="cpass" id= "cpass" required class="box">
 
-		<input type="submit" name="Register">
+		<input type="submit" name="Register" class="button">
 
+		<p> Forgot password? <a href="password_recovery">Click to recover your password</a></p>
+		<p>Have an account already? <a href="login.html">Click to Login</a></p>
 	</form>
 
 {% endblock %}

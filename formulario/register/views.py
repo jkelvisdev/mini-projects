@@ -7,4 +7,5 @@ def Register(request):
 
 def registration_completed(request):
 
-	return 
+	return None
+

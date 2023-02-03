@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Formulario de Inicio
+
+{% endblock %}
+
+{% block content %}
+
+<h1>Login Form </h1>
+
+	<form class="form" action="/register/" method="GET">
+
+		<label for= "username">Username</label>
+		<input type="text" name="username" id= "username" maxlength="20" required class="box">
+
+		<label for= "password">Password</label>
+		<input type="password" name="password" id= "password" maxlength="16" required class="box">
+
+		<input type="submit" name="login" class="button">
+
+	</form>
+
+
+{% endblock %} 
